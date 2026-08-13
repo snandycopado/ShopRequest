@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Questionnaire_Session_Token__c</fullName>
+    <externalId>false</externalId>
+    <label>Questionnaire Session Token</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+    <description>Issued only after a successful OTP verification. Required by getQuestionnaire/submitAnswers so those Apex methods cannot be called without first passing OTP. Cleared on submit; not persisted client-side beyond the page session.</description>
+</CustomField>

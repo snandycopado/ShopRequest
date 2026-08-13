@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Case Shop Request Path</masterLabel>
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <recordTypeName>Shop_Request</recordTypeName>
+    <pathAssistantSteps>
+        <fieldNames>Case_Type__c</fieldNames>
+        <picklistValueName>Initial Request</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Questionnaire_Link__c</fieldNames>
+        <picklistValueName>Send Questionary</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <picklistValueName>Answer Received</picklistValueName>
+    </pathAssistantSteps>
+</PathAssistant>

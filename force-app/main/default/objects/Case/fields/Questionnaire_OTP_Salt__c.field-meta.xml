@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Questionnaire_OTP_Salt__c</fullName>
+    <externalId>false</externalId>
+    <label>Questionnaire OTP Salt</label>
+    <length>32</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+    <description>Per-generation random salt used together with the OTP to compute Questionnaire_OTP_Hash__c.</description>
+</CustomField>

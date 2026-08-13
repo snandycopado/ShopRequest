@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Questionnaire_Locked__c</fullName>
+    <externalId>false</externalId>
+    <label>Questionnaire Locked</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+    <defaultValue>false</defaultValue>
+    <description>Set true after 5 consecutive failed OTP attempts, blocking further verification attempts. Cleared automatically the next time a new OTP is requested (Resend), or can be cleared manually by an agent.</description>
+</CustomField>

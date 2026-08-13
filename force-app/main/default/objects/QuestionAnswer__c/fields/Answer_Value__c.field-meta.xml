@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Answer_Value__c</fullName>
+    <externalId>false</externalId>
+    <label>Answer Value</label>
+    <length>1300</length>
+    <visibleLines>3</visibleLines>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <description>Holds the answer for any AnswerType__c: Boolean as "true"/"false", Date as ISO yyyy-MM-dd, Option as the selected value, Text as free text.</description>
+</CustomField>

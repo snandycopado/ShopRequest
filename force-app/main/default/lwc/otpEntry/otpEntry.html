@@ -1,0 +1,35 @@
+<template>
+    <div class="otp-step">
+        <h2 class="step-title">Verify your email</h2>
+        <p class="step-subtitle">Enter the 6-digit code we just emailed you.</p>
+
+        <input
+            type="tel"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            maxlength="6"
+            autocomplete="one-time-code"
+            class="otp-input"
+            placeholder="000000"
+            value={otpValue}
+            oninput={handleOtpChange}
+            disabled={isBusy}
+        />
+
+        <template if:true={errorMessage}>
+            <p class="error-text">{errorMessage}</p>
+        </template>
+        <template if:true={resendMessage}>
+            <p class="success-text">{resendMessage}</p>
+        </template>
+
+        <button type="button" class="btn-primary" onclick={handleVerify} disabled={isVerifyDisabled}>
+            <template if:false={isVerifying}>Verify</template>
+            <template if:true={isVerifying}>Verifying...</template>
+        </button>
+
+        <button type="button" class="btn-link" onclick={handleResend} disabled={isBusy}>
+            Didn't get a code? Resend
+        </button>
+    </div>
+</template>

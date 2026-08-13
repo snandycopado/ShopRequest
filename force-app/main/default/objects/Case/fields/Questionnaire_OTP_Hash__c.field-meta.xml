@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Questionnaire_OTP_Hash__c</fullName>
+    <externalId>false</externalId>
+    <label>Questionnaire OTP Hash</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+    <description>SHA-256 hash of the current one-time-password combined with Questionnaire_OTP_Salt__c. The plaintext OTP is never stored. Cleared after a successful verification (single use) or replaced whenever a new OTP is requested.</description>
+</CustomField>

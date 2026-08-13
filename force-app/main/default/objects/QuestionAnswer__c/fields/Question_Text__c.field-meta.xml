@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Question_Text__c</fullName>
+    <externalId>false</externalId>
+    <label>Question Text</label>
+    <length>32768</length>
+    <visibleLines>5</visibleLines>
+    <type>LongTextArea</type>
+    <description>Snapshot of the related QuestionMaster__c.QuestionText__c, copied by Apex (QuestionnaireDataController.submitAnswers) when the answer is created. NOTE: this cannot be a true formula field because Salesforce formulas cannot reference a Long Text Area field (QuestionText__c is LTA) - this is a platform limitation, not a design choice. The value is fixed at submit time, which also correctly preserves the exact wording the requester answered even if the master question is edited later.</description>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OTP_Attempt_Count__c</fullName>
+    <externalId>false</externalId>
+    <label>OTP Attempt Count</label>
+    <precision>2</precision>
+    <scale>0</scale>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+    <defaultValue>0</defaultValue>
+    <description>Counts consecutive failed OTP verification attempts. Reset to 0 on a successful verification or when a new OTP is requested. Used to lock the questionnaire after too many failed attempts.</description>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shop_Request</fullName>
+    <active>true</active>
+    <businessProcess>Shop_Request_Support_Process</businessProcess>
+    <label>Shop Request</label>
+    <picklistValues>
+        <picklist>Case_Type__c</picklist>
+        <values>
+            <fullName>New Branded Shop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Franchise Shop</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Questionnaire_Link__c</fullName>
+    <externalId>false</externalId>
+    <label>Questionnaire Link</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <formula>IF(ISBLANK(Questionnaire_Token__c), &quot;&quot;, $CustomMetadata.Shop_Request_Settings__mdt.Default.Site_Base_URL__c &amp; &quot;?token=&quot; &amp; Questionnaire_Token__c)</formula>
+    <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+    <description>Full public questionnaire URL for this Case, built from the org's configured site base URL (Shop_Request_Settings__mdt.Default.Site_Base_URL__c) plus the obfuscated Questionnaire_Token__c. Merged into the "Send Questionary" email.</description>
+</CustomField>

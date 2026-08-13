@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QuestionMaster__c</fullName>
+    <externalId>false</externalId>
+    <label>Question Master</label>
+    <referenceTo>QuestionMaster__c</referenceTo>
+    <relationshipLabel>Question Answers</relationshipLabel>
+    <relationshipName>Question_Answers</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+    <deleteConstraint>Cascade</deleteConstraint>
+</CustomField>

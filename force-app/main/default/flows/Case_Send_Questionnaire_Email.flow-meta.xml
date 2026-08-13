@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <interviewLabel>Case Send Questionnaire Email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case Send Questionnaire Email</label>
+    <processType>AutoLaunchedFlow</processType>
+    <status>Active</status>
+
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Ensure_Questionnaire_Token</targetReference>
+        </connector>
+        <object>Case</object>
+        <triggerType>RecordAfterSave</triggerType>
+        <recordTriggerType>Update</recordTriggerType>
+        <filterFormula>ISCHANGED({!$Record.Status}) &amp;&amp; ISPICKVAL({!$Record.Status}, &quot;Send Questionary&quot;) &amp;&amp; {!$Record.RecordType.DeveloperName} = &quot;Shop_Request&quot;</filterFormula>
+    </start>
+
+    <actionCalls>
+        <name>Ensure_Questionnaire_Token</name>
+        <label>Ensure Questionnaire Token</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <actionName>QuestionnaireTokenService</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <connector>
+            <targetReference>Send_Questionnaire_Email</targetReference>
+        </connector>
+        <inputParameters>
+            <name>caseIds</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+
+    <actionCalls>
+        <name>Send_Questionnaire_Email</name>
+        <label>Send Questionnaire Email</label>
+        <locationX>176</locationX>
+        <locationY>266</locationY>
+        <actionName>Case.Questionnaire_Link_Alert</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+</Flow>

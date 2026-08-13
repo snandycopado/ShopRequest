@@ -1,0 +1,99 @@
+<template>
+    <div class="form-step">
+        <template if:true={isLoading}>
+            <div class="form-loading">
+                <lightning-spinner alternative-text="Loading questionnaire" size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:false={isLoading}>
+            <template if:true={errorMessage}>
+                <p class="error-text">{errorMessage}</p>
+            </template>
+
+            <template if:true={isReadOnly}>
+                <div class="readonly-banner">
+                    <p>You already submitted your response for this request. Here is what you sent us.</p>
+                </div>
+            </template>
+
+            <template if:false={isReadOnly}>
+                <h2 class="step-title">Shop Request Questionnaire</h2>
+                <p class="step-subtitle">Please answer the following questions about your request.</p>
+            </template>
+
+            <div class="question-list">
+                <template for:each={questions} for:item="q">
+                    <div class="question-item" key={q.questionMasterId}>
+                        <label class="question-label">
+                            {q.questionText}
+                            <template if:true={q.isRequired}><span class="required-mark">*</span></template>
+                        </label>
+
+                        <template if:true={q.isText}>
+                            <textarea
+                                class="field-input"
+                                rows="3"
+                                data-id={q.questionMasterId}
+                                value={q.value}
+                                oninput={handleTextChange}
+                                disabled={isReadOnly}
+                            ></textarea>
+                        </template>
+
+                        <template if:true={q.isOption}>
+                            <select
+                                class="field-input"
+                                data-id={q.questionMasterId}
+                                value={q.value}
+                                onchange={handleTextChange}
+                                disabled={isReadOnly}
+                            >
+                                <option value="">-- Select --</option>
+                                <template for:each={q.optionChoices} for:item="choice">
+                                    <option key={choice} value={choice}>{choice}</option>
+                                </template>
+                            </select>
+                        </template>
+
+                        <template if:true={q.isBoolean}>
+                            <label class="toggle-wrap">
+                                <input
+                                    type="checkbox"
+                                    data-id={q.questionMasterId}
+                                    checked={q.value}
+                                    onchange={handleCheckboxChange}
+                                    disabled={isReadOnly}
+                                />
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </template>
+
+                        <template if:true={q.isDate}>
+                            <input
+                                type="date"
+                                class="field-input"
+                                data-id={q.questionMasterId}
+                                value={q.value}
+                                oninput={handleTextChange}
+                                disabled={isReadOnly}
+                            />
+                        </template>
+                    </div>
+                </template>
+            </div>
+
+            <template if:false={isReadOnly}>
+                <template if:true={isSubmitted}>
+                    <p class="success-text">Thank you - your answers have been submitted.</p>
+                </template>
+                <template if:false={isSubmitted}>
+                    <button type="button" class="btn-primary" onclick={handleSubmit} disabled={isSubmitting}>
+                        <template if:false={isSubmitting}>Submit</template>
+                        <template if:true={isSubmitting}>Submitting...</template>
+                    </button>
+                </template>
+            </template>
+        </template>
+    </div>
+</template>

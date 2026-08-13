@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Shop Request Guest Access</label>
+    <description>Grants the site Guest User access to only the Apex controllers behind the public questionnaire page. No direct CRUD on Case/QuestionMaster__c/QuestionAnswer__c - access is via token/OTP-gated Apex only.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <classAccesses>
+        <apexClass>QuestionnaireAuthController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QuestionnaireDataController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+</PermissionSet>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Options_Required_For_Option_Type</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(AnswerType__c, &quot;Option&quot;) &amp;&amp; ISBLANK(Options__c)</errorConditionFormula>
+    <errorDisplayField>Options__c</errorDisplayField>
+    <errorMessage>Options is required when Answer Type is Option.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,31 @@
+<template>
+    <div class="portal-shell">
+        <div class="portal-card">
+            <div class="portal-header">
+                <span class="portal-brand">Shop Request Portal</span>
+            </div>
+            <div class="portal-body">
+                <template if:true={isLoading}>
+                    <div class="state-loading">
+                        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                        <p class="state-message">Preparing your questionnaire...</p>
+                    </div>
+                </template>
+
+                <template if:true={isOtpStep}>
+                    <c-otp-entry token={token} onverified={handleVerified}></c-otp-entry>
+                </template>
+
+                <template if:true={isFormStep}>
+                    <c-questionnaire-form token={token} session-token={sessionToken}></c-questionnaire-form>
+                </template>
+
+                <template if:true={isError}>
+                    <div class="state-error">
+                        <p>{errorMessage}</p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>
