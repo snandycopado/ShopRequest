@@ -1,8 +1,8 @@
 @IsTest
-private class caseValidationRuleTest {
+private class CaseValidationRuleTest {
 
     @IsTest
-    static void BlocksSendQuestionaryWithoutCaseTypeOnShopRequestRecordType@123() {
+    static void blocksSendQuestionaryWithoutCaseTypeOnShopRequestRecordType() {
         Id shopRequestRecordTypeId = [
             SELECT Id FROM RecordType WHERE SObjectType = 'Case' AND DeveloperName = 'Shop_Request' LIMIT 1
         ].Id;
